@@ -1,0 +1,42 @@
+# 🎯 Cloud Functions V2
+
+## What's new in Cloud Functions for Firebase v2
+- Function instances can now execute more than one request at a time.
+- Secure your callable and HTTP functions.
+- Cloud Functions is now built on [Cloud Run](https://cloud.google.com/run)
+- Function instances now default to the default compute service account rather than the app engine service account.
+- HTTP functions can now have a 1 hour timeout (up from 9 minutes previously).
+- The `firebase-functions` SDK has been reimagined as more native to modern JavaScript
+- [more](https://firebase.google.com/docs/functions/beta)
+
+## Specification
+
+- region: `us-central1` (multi region).
+- frameworks: express.
+- minimum instance: 0.
+- functions: one https function, one Firebase remote config trigger and one auth user trigger.
+- scheduler: cron job `'1 of month 00:00'`
+- API Endpoints for https function: Get Last location and Update Location.
+- Environments: Development and Production.
+
+## Cron Job
+
+```typescript
+exports.scheduledFunction = functions.pubsub.schedule('1 of month 00:00')
+  .timeZone('America/New_York')
+  .onRun((context) => {
+    // TODO(Ridwan): Log event.
+    // TODO(Ridwan): Check every user locations collection. delete collection `if data > 30 days` 
+                     and remove Document if no any activities under the last 30 days
+});
+
+```
+
+## Sequence Diagram
+
+Update Location Sequence Diagram
+<Image src="https://user-images.githubusercontent.com/56130955/170932157-e9ace133-fe95-4b7a-b405-cee6c151979c.png" zoom/>
+
+Get Last Location Sequence Diagram
+<Image src="https://user-images.githubusercontent.com/56130955/170932677-eb14e1f2-1d40-4652-a0f4-b6b757bd547f.png" zoom/>
+

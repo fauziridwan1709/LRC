@@ -1,0 +1,35 @@
+# 💿 Firestore
+
+## Extensions
+
+Stream collections to big query.
+
+<Image src="https://user-images.githubusercontent.com/56130955/170928459-bda1fbcd-fa23-4466-a746-9a97005c5afc.png" zoom />
+
+
+## Data Structure
+
+for each document will be located at `/user.location.trackings/${uid}/${MMMM yyyy}/${documentId}`.
+
+for example `/user.location.trackings/jFDcLYLoP8QB1kltN6jctC5UYSD3/january 2022/pSUZ2WXyP0YuItzThc15`
+
+<Image src="https://user-images.githubusercontent.com/56130955/170919462-73353071-4401-4818-a571-1c798a7d09d7.png" zoom />
+<Image src="https://user-images.githubusercontent.com/56130955/170919559-cc0c98ff-59d5-4e8f-9b8d-b56dd1a8f234.png" zoom />
+
+there will one be collections with name `user.location.trackings` and subcollections with name `${MMMM yyyy}`.
+Firebase Firestore Document holds information about `createdTime` and `updateTime` so we dont need them in document data.
+
+```json
+{
+    "lat":89.11111111,
+    "long": 179.11111111
+}
+```
+
+Total size: **42 B**
+
+Values: **36 B** (36B avg)
+
+Key json: **6 B** (6B avg)
+
+using [JSON Size Analyzer](https://www.debugbear.com/json-size-analyzer)

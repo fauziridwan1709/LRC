@@ -1,0 +1,27 @@
+{
+  "name": "LRC Service",
+  "zoomImages": "true",
+  "zoomImages-Comment": "turning off zoom site-wide to enable images w/ links",
+  "sidebar": [
+    [
+      "Getting Started",
+      "/"
+    ],
+    [
+      "Background Location",
+      "/background-location"
+    ],
+    [
+      "Firebase Remote Config With Google Analytic",
+      "/firebase-remote-config"
+    ],
+    [
+      "Firebase Cloud Functions V2",
+      "/firebase-cloud-function"
+    ],
+    [
+      "Firebase Firestore",
+      "/firebase-firestore"
+    ]
+  ]
+}
